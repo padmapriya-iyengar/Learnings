@@ -1,0 +1,31 @@
+<project name="Cordys Utilities" default="Information">
+	<property environment="env" />
+	<property name="bop.install.dir" value="${env.CORDYS_HOME}" />
+	<taskdef resource="com/darkhorse/taskdef.xml" classpath="${bop.install.dir}/components/anttasks/anttasks.jar:${bop.install.dir}/components/anttasks/CordysUtilities.jar" />
+	<target name="ContainerAction">
+		<echo>Starting the container action.</echo>
+		<ContainerAction ServiceGroup="BS3_ApplicationDB_SG" ServiceContainer="BS3_ApplicationDB_SC" Organization="BusinessServices3" Action="Restart" ServiceNamespace="http://schemas.cordys.com/1.0/monitor" ldapRoot = "cn=cordys,cn=DevInst2,o=alahli.com"/>
+		<echo>Performed the container action.</echo>
+	</target>
+	<target name="RoleAssignment">
+		<echo>Starting the role action.</echo>
+		<RoleAssignment RoleName="InvestmentUser" RolePackage="Middleware InvestmentService" Organization="BusinessServices3" User="aol" ServiceNamespace="http://schemas.cordys.com/1.0/ldap" ldapRoot = "cn=cordys,cn=DevInst2,o=alahli.com" />
+		<echo>Performed the role action.</echo>
+	</target>
+	<target name="ContainerConfigUpdate">
+		<echo>Starting the container config update action.</echo>
+		<ContainerConfigUpdate ServiceGroup="BS3_HPSM_SG" ServiceContainer="BS3_HPSM_SC" Organization="BusinessServices3" UpdateParameter="JRECONFIG" UpdateValue="/opt/Cordys/Bop/bsf/runtime/deploy/organization/BusinessServices3/HPSMService.jar"  ServiceNamespace="http://schemas.cordys.com/1.0/ldap" UpdateAction="ADD" ldapRoot = "cn=cordys,cn=DevInst2,o=alahli.com" />
+		<echo>Performed the container config update action.</echo>
+	</target>
+	<target name="GroupConfigAdd">
+		<echo>Starting the group config update action.</echo>
+		<GroupConfigUpdate ServiceGroup="BS3_HPSM_SG" Organization="BusinessServices3" UpdateParameter="INTERFACE_UPDATE" UpdateValue="CacheMgmtWebService.CacheMgmtWebServiceInterface"  ServiceNamespace="http://schemas.cordys.com/1.0/ldap" UpdateAction="ADD" InterfacePackage="http://schemas.cordys.com/CacheManagementWsAppPackage" ldapRoot = "cn=cordys,cn=DevInst2,o=alahli.com" />
+		<echo>Performed the group config update action.</echo>
+	</target>
+	<target name="GroupConfigDelete">
+		<echo>Starting the group config update action.</echo>
+		<GroupConfigUpdate ServiceGroup="BS3_HPSM_SG" Organization="BusinessServices3" UpdateParameter="INTERFACE_UPDATE" UpdateValue="CacheMgmtWebService.CacheMgmtWebServiceInterface"  ServiceNamespace="http://schemas.cordys.com/1.0/ldap" UpdateAction="DELETE" InterfacePackage="http://schemas.cordys.com/CacheManagementWsAppPackage" ldapRoot = "cn=cordys,cn=DevInst2,o=alahli.com" />
+		<echo>Performed the group config update action.</echo>
+	</target>
+	<target name="Information"><echo>Specify the action to the taken</echo></target>
+</project>
