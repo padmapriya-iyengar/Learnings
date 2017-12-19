@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<antlib>
+    <taskdef name="ContainerAction" classname="com.darkhorse.containeraction.ant.tasks.ContainerActionTask"/>
+    <taskdef name="RoleAssignment" classname="com.darkhorse.roleassignment.ant.tasks.RoleAssignmentTasks"/>
+    <taskdef name="ContainerConfigUpdate" classname="com.darkhorse.containerconfigupdate.ant.task.ConfigUpdateTask"/>
+     <taskdef name="GroupConfigUpdate" classname="com.darkhorse.groupconfigupdate.ant.task.ConfigUpdateTask"/>
+</antlib>
