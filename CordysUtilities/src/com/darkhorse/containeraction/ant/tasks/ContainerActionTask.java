@@ -38,7 +38,7 @@ public class ContainerActionTask extends
 	public ContainerActionHandler createHandler(String paramString,
 			ContainerActionSettings paramSettingsT) {
 		// TODO Auto-generated method stub
-		return new ContainerActionHandler("cn=cordys,cn=DevInst2,o=alahli.com",
+		return new ContainerActionHandler("cn=cordys,cn=defaultInst,o=dhdigital.co.in",
 				(ContainerActionSettings) getSettings());
 	}
 

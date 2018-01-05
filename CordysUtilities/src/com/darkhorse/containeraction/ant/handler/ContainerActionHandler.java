@@ -100,7 +100,7 @@ public class ContainerActionHandler extends BaseHandler {
 
 			dn += "cn=" + serviceContainer + ",cn=" + serviceGroup
 					+ ",cn=soap nodes,o=" + organization
-					+ ",cn=cordys,cn=DevInst2,o=alahli.com";
+					+ ",cn=cordys,cn=defaultInst,o=dhdigital.co.in";
 			getLogger().debug(Messages.ACTION_INPROGRESS, new Object[] { dn });
 		} catch (Exception exp) {
 			BaseTask.printMessage("Exception occured while creating the container DN");
